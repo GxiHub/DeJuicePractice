@@ -1,0 +1,47 @@
+<% include ../partials/WorkHours %>
+
+<table border='1'>
+	<tbody>
+		<form action="/" method="GET">
+	 		<button type="submit">回到首頁</button>
+		</form>
+		<br>
+
+		<tr>
+			<td>  </td><td> 唯一碼 </td><td> 姓名  </td><td> 日期 </td><td> 狀態 </td><td> 上下班時間 </td>
+		</tr>
+		<tr>
+		<% for(var i=0; i<dejuice_employee.length; i++) {%>
+
+			<% for(var j=i+1; j<dejuice_employee.length; j++){
+
+						if( (dejuice_employee[j].employee_name == dejuice_employee[i].employee_name) && 
+							(dejuice_employee[j].year == dejuice_employee[i].year)&& 
+							(dejuice_employee[j].month == dejuice_employee[i].month)&& 
+							(dejuice_employee[j].day == dejuice_employee[i].day) &&
+							(dejuice_employee[j].worktype == '下班')
+						    ){
+						   		hour_checkout = dejuice_employee[j].hour;
+						   		minute_checkout = dejuice_employee[j].minute;
+						   		break;
+						    }
+			} %>
+
+			<% if(dejuice_employee[i].worktype != '班'){%>
+				<tr>
+			        <td><form action="/delete/EmployeeSalary/" method="POST">
+			      		<input type="hidden" placeholder="timeID" name="timeID" value=<%= dejuice_employee[i].timeID %>>
+			      		<button type="submit">刪除</button>
+				    </form></td>
+				    <td><%= dejuice_employee[i].timeID %></td>
+					<td><%= dejuice_employee[i].employee_name %></td>
+					<td><%= dejuice_employee[i].year %>/<%=dejuice_employee[i].month%>/<%=dejuice_employee[i].day %></td>
+					<td><%= dejuice_employee[i].worktype %></td>
+					<td><%= dejuice_employee[i].hour %>:<%=dejuice_employee[i].minute%></td>
+				</tr>
+
+			<% } %>
+	 	<% } %>
+
+	</tbody>
+</table>

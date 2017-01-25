@@ -1,0 +1,123 @@
+<form action="/WorkHours/Show/" method="POST">
+	<select name="checkPeriodyear">
+		　<option value="2016">2016</option><option value="2017">2017</option>
+	</select>
+	<select name="checkPeriodmonth">
+		　<option value="11">11</option><option selected value="12">12</option>
+	</select>
+	<select name="employee_name">
+		　<option value="小香">小香</option><option value="雲翔">雲翔</option><option value="竹竹">竹竹</option>
+		  <option value="亮廷">亮廷</option><option value="聖芳">聖芳</option><option value="藝芳">藝芳</option>
+		  <option value="廣媽">廣媽</option><option value="蓁蓁">蓁蓁</option><option value="阿廣">阿廣</option>
+	</select>
+	<button type="submit">查詢</button>
+</form>
+
+<form action="/" method="GET">
+	<button type="submit">返回</button>
+</form>
+<form action="/ShowAllSalaryForSingleMonth/" method="POST">
+	<select name="checkPeriodyear">
+		　<option value="2016">2016</option><option value="2017">2017</option>
+	</select>
+	<select name="checkPeriodmonth">
+		　<option value="11">11</option><option selected value="12">12</option>
+	</select>
+	<button type="submit">顯示當月所有薪資</button>
+</form>
+
+<table border='1'>
+	<tbody>
+		<tr>
+			<td> 唯一碼 </td><td> 姓名  </td><td> 日期 </td><td> 狀態 </td><td> 上班時間 </td><td> 下班時間 </td><td> 計薪狀態 </td><td> 薪水 </td>
+		</tr>
+
+		<%
+			var Salary1  = 0 
+			var Salary2  = 0 
+			var Salary3  = 0 
+			var Salary4  = 0 
+			var Salary5  = 0 
+			var Salary6  = 0 
+			var Salary7  = 0 
+			var Salary8  = 0 
+			var Salary9  = 0 
+		%>
+		<% for(var i=0; i<dejuice_employee.length; i++) {%>
+			<% var hour_checkout='';%>
+			<% var minute_checkout='';%>
+			<% var workPeriod='';%>
+				<%if(dejuice_employee[i].worktype == '上班' && dejuice_employee[i].month == parseInt(PeriodMonth,10) && dejuice_employee[i].employee_name == PeriodName){%>
+				<tr>
+				    <td><%= dejuice_employee[i].timeID %></td>
+					<td><%= dejuice_employee[i].employee_name %></td>
+					<td><%= dejuice_employee[i].year %>/<%=dejuice_employee[i].month%>/<%=dejuice_employee[i].day %></td>
+					<td><%= dejuice_employee[i].worktype %></td>
+					<td><%= dejuice_employee[i].hour %>:<%=dejuice_employee[i].minute%></td>
+					<td><%= dejuice_employee[i].OfflineHour %>:<%=dejuice_employee[i].OfflineMinute%></td>
+					<td><%= dejuice_employee[i].CountTag %></td>
+					<td><%= dejuice_employee[i].DailySalary %></td>
+				</tr>
+		
+				<% 
+						if(dejuice_employee[i].employee_name == '小香')
+						{
+							Salary1  = Salary1 + dejuice_employee[i].DailySalary
+						}
+						else if(dejuice_employee[i].employee_name == '雲翔')
+						{
+							Salary2 = Salary2 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '竹竹')
+						{
+							Salary3 = Salary3 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '亮廷')
+						{
+							Salary4 = Salary4 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '聖芳')
+						{
+							Salary5 = Salary5 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '藝芳')
+						{
+							Salary6 = Salary6 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '廣媽')
+						{
+							Salary7 = Salary7 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '阿廣')
+						{
+							Salary8 = Salary8 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+						else if(dejuice_employee[i].employee_name == '蓁蓁')
+						{
+							Salary9 = Salary9 + Math.round(dejuice_employee[i].DailySalary, 10)
+						}
+				%>
+				<% } %>
+	 	<% } %>
+	</tbody>
+</table>
+<br>
+<table border='1'>
+<tbody>
+
+		<tr>
+			<td> 薪資  </td><td> 小香  </td><td> 雲翔 </td><td> 竹竹  </td>
+			<td> 亮廷  </td><td> 聖芳  </td><td> 藝芳 </td><td> 廣媽  </td>
+			<td> 阿廣  </td><td> 蓁蓁  </td><td> 總額  </td>
+		</tr>
+		<tr>
+		<td> 金額  </td>
+		<td><%= Salary1 %></td><td><%= Salary2 %></td>
+		<td><%= Salary3 %></td><td><%= Salary4 %></td>
+		<td><%= Salary5 %></td><td><%= Salary6 %></td>
+		<td><%= Salary7 %></td><td><%= Salary8 %></td>
+		<td><%= Salary9 %></td><td><%= Salary1+Salary2+Salary3+Salary4+Salary5+Salary6+Salary7+Salary8+Salary9 %></td>
+		</tr>
+
+</tbody>
+</table>

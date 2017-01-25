@@ -1,0 +1,110 @@
+<!-- 水果總表 -->
+		<% 
+			var Beef_fruit_number_1  = 0 
+			var Beef_fruit_number_2  = 0 
+			var Beef_fruit_number_3  = 0 
+			var Beef_fruit_number_4  = 0 
+			var Beef_fruit_number_5  = 0 
+			var Beef_fruit_number_6  = 0 
+			var Beef_fruit_number_7  = 0 
+			var Beef_fruit_number_8  = 0 
+			var Beef_fruit_number_9  = 0 
+			var Beef_fruit_number_10  = 0 
+			var Beef_fruit_number_11  = 0 
+			var Beef_fruit_number_12  = 0
+			var Beef_fruit_number_13  = 0 
+			var Beef_fruit_number_14  = 0
+
+			<!-- var PorkTotal = 0 -->
+		    for(var i=0; i<_dejuice.length; i++) 
+			{
+				if(_dejuice[i].year == PeriodYear && _dejuice[i].month == PeriodMonth){
+
+				if(_dejuice[i].item == '蘋果')
+				{
+					Beef_fruit_number_1  = Beef_fruit_number_1 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '鳳梨')
+				{
+					Beef_fruit_number_2 = Beef_fruit_number_2 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '葡萄')
+				{
+					Beef_fruit_number_3 = Beef_fruit_number_3 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '香吉士')
+				{
+					Beef_fruit_number_4 = Beef_fruit_number_4 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '奇異果')
+				{
+					Beef_fruit_number_5 = Beef_fruit_number_5 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '火龍果')
+				{
+					Beef_fruit_number_6 = Beef_fruit_number_6 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '蔓越莓')
+				{
+					Beef_fruit_number_7 = Beef_fruit_number_7 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '草莓')
+				{
+					Beef_fruit_number_8 = Beef_fruit_number_8 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '覆盆莓')
+				{
+					Beef_fruit_number_9 = Beef_fruit_number_9 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '藍莓')
+				{
+					Beef_fruit_number_10 = Beef_fruit_number_10 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '芭樂')
+				{
+					Beef_fruit_number_11 = Beef_fruit_number_11 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '牛奶')
+				{
+					Beef_fruit_number_12 = Beef_fruit_number_12 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '可可粉')
+				{
+					Beef_fruit_number_13 = Beef_fruit_number_13 + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '巧克力醬')
+				{
+					Beef_fruit_number_14 = Beef_fruit_number_14 + Math.round(_dejuice[i].number, 10)
+				}
+
+				}
+	 		}
+		%>
+
+	<table border='1'>
+	<tbody>
+
+		<tr>
+			<td> 水果名稱  </td><td> 蘋果  </td><td> 鳳梨 </td><td> 葡萄  </td>
+			<td> 香吉士  </td><td> 奇異果 </td><td> 火龍果  </td><td> 蔓越莓  </td><td> 草莓 </td>
+			<td> 覆盆莓  </td><td> 藍莓 </td><td> 芭樂  </td><td> 牛奶  </td><td> 可可粉  </td>
+			<td> 巧克力醬  </td><td> 小計 </td>
+		</tr>
+		<tr>
+		<td> 總金額  </td>
+		<td><%= Beef_fruit_number_1 %></td><td><%= Beef_fruit_number_2 %></td>
+		<td><%= Beef_fruit_number_3 %></td><td><%= Beef_fruit_number_4 %></td>
+		<td><%= Beef_fruit_number_5 %></td><td><%= Beef_fruit_number_6 %></td>
+		<td><%= Beef_fruit_number_7 %></td><td><%= Beef_fruit_number_8 %></td>
+		<td><%= Beef_fruit_number_9 %></td><td><%= Beef_fruit_number_10 %></td>
+		<td><%= Beef_fruit_number_11 %></td><td><%= Beef_fruit_number_12 %></td>
+		<td><%= Beef_fruit_number_13 %></td><td><%= Beef_fruit_number_14 %></td>
+		<td><%= Beef_fruit_number_1+Beef_fruit_number_2+Beef_fruit_number_3+Beef_fruit_number_4+Beef_fruit_number_5+
+				Beef_fruit_number_6+Beef_fruit_number_7+Beef_fruit_number_8+Beef_fruit_number_9+Beef_fruit_number_10+
+				Beef_fruit_number_11+Beef_fruit_number_12+Beef_fruit_number_13+Beef_fruit_number_14%>
+		</td>
+		</tr>
+
+	</tbody>
+	</table>
+	<!-- 水果總表 -->

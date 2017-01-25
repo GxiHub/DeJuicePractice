@@ -1,0 +1,33 @@
+<% include ../partials/additem %>
+<form action="/" method="GET">
+	<button type="submit">返回</button>
+</form>
+
+	<table border='1'>
+	<tbody>
+		<tr>
+			<td>  功能 </td><td>  唯一號 </td><td>  日期 </td><td> 支出收入  </td><td> 項目分類  </td><td> 名稱  </td><td>  金額  </td><td> 數量  </td><td> 備註  </td>
+		</tr>
+
+	  <% for(var i=0; i<_dejuice.length; i++) {%>
+		<%if(_dejuice[i].month == 12){%>
+
+	      <tr>
+		      <td><form action="/delete/" method="POST">
+		      		<input type="hidden" placeholder="price" name="timeID" value=<%= _dejuice[i].timeID %>>
+		      		<button type="submit">刪除</button>
+			  </form></td>
+	      	  <td><%= _dejuice[i].timeID %></td>
+		      <td><%= _dejuice[i].year %>/<%= _dejuice[i].month %>/<%= _dejuice[i].day %></td>
+		      <td><%= _dejuice[i].income %></td>
+		      <td><%= _dejuice[i].class %></td>
+		      <td><%= _dejuice[i].item %></td>
+		      <td><%= _dejuice[i].number %></td>
+		      <td><%= _dejuice[i].amount %></td>
+		      <td><%= _dejuice[i].note %></td>
+	      </tr>
+
+	    <% } %>
+	  <% } %>
+	</tbody>
+	</table>

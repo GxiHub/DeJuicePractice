@@ -1,0 +1,19 @@
+<form action="/" method="GET">
+		<button type="submit">返回</button>
+</form>
+<form action="/ProfitCount/" method="POST">
+	<select name="checkPeriodyear">
+		　<option value="2016">2016</option><option value="2017">2017</option>
+	</select>
+	<select name="checkPeriodmonth">
+		　<option value="11">11</option><option selected value="12">12</option>
+	</select>
+	<button type="submit">查詢</button>
+</form>
+<br>
+	<% include ../partials/showitem %>
+<br>
+	<% include ../partials/fruititem %>
+<br>
+	<% include ../partials/essentialitem %>
+<br>

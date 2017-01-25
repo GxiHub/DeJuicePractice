@@ -1,0 +1,78 @@
+		<% 
+			var Beef_item1_number  = 0 
+			var Beef_item1_number_uber =0
+			var Beef_item2_number  = 0 
+			var Beef_item3_number  = 0 
+			var Beef_item4_number  = 0 
+			var Beef_item5_number  = 0 
+			var Beef_item6_number  = 0 
+			var Beef_item7_number  = 0 
+			var Beef_item8_number  = 0 
+
+			<!-- var PorkTotal = 0 -->
+		    for(var i=0; i<_dejuice.length; i++) 
+			{
+
+				if(_dejuice[i].year == PeriodYear && _dejuice[i].month == PeriodMonth){
+
+				if(_dejuice[i].class == '營業收入')
+				{
+					if(_dejuice[i].item == '店營收')
+					{
+						Beef_item1_number  = Beef_item1_number + Math.round(_dejuice[i].number, 10)
+					}
+					else
+					{
+						Beef_item1_number_uber = Beef_item1_number_uber + Math.round(_dejuice[i].number, 10)
+					}
+				}
+				else if(_dejuice[i].class == '額外收入')
+				{
+					Beef_item2_number = Beef_item2_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '水果支出')
+				{
+					Beef_item3_number = Beef_item3_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '房租支出')
+				{
+					Beef_item4_number = Beef_item4_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '人事支出')
+				{
+					Beef_item5_number = Beef_item5_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '廣告支出')
+				{
+					Beef_item6_number = Beef_item6_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '必要支出')
+				{
+					Beef_item7_number = Beef_item7_number + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].class == '雜項支出')
+				{
+					Beef_item8_number = Beef_item8_number + Math.round(_dejuice[i].number, 10)
+				}
+
+				}
+	 		}
+		%>
+
+	<table border='1'>
+	<tbody>
+
+		<tr>
+			<td> 項目名稱  </td><td> 店收入  </td><td> Uber收入  </td><td> 額外收入 </td><td> 水果支出  </td>
+			<td> 房租支出  </td><td> 人事支出 </td><td> 廣告支出  </td><td> 必要支出  </td><td> 雜項支出 </td>
+		</tr>
+		<tr>
+		<td> 總金額  </td>
+		<td><%= Beef_item1_number %></td><td><%= Beef_item1_number_uber %></td><td><%= Beef_item2_number %></td>
+		<td><%= Beef_item3_number %></td><td><%= Beef_item4_number %></td>
+		<td><%= Beef_item5_number %></td><td><%= Beef_item6_number %></td>
+		<td><%= Beef_item7_number %></td><td><%= Beef_item8_number %></td>
+		</tr>
+
+	</tbody>
+	</table>

@@ -1,0 +1,72 @@
+
+		<% 
+			var Beef_item1_extra  = 0 
+			var Beef_item2_extra  = 0 
+			var Beef_item3_extra  = 0 
+			var Beef_item4_extra  = 0 
+			var Beef_item5_extra  = 0 
+			var Beef_item6_extra  = 0 
+			var Beef_item7_extra  = 0 
+			var Beef_item8_extra  = 0 
+
+		    for(var i=0; i<_dejuice.length; i++) 
+			{
+				if(_dejuice[i].year == PeriodYear && _dejuice[i].month == PeriodMonth){
+
+				if(_dejuice[i].item == '冰沙杯')
+				{
+					Beef_item1_extra  = Beef_item1_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '冰沙杯蓋')
+				{
+					Beef_item2_extra = Beef_item2_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '果汁瓶')
+				{
+					Beef_item3_extra = Beef_item3_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '果汁瓶運費')
+				{
+					Beef_item4_extra = Beef_item4_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '冰塊')
+				{
+					Beef_item5_extra = Beef_item5_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '電費')
+				{
+					Beef_item6_extra = Beef_item6_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '水費')
+				{
+					Beef_item7_extra = Beef_item7_extra + Math.round(_dejuice[i].number, 10)
+				}
+				else if(_dejuice[i].item == '電話費')
+				{
+					Beef_item8_extra = Beef_item8_extra + Math.round(_dejuice[i].number, 10)
+				}
+
+				}
+	 		}
+		%>
+
+	<table border='1'>
+	<tbody>
+
+		<tr>
+			<td> 必要支出  </td><td> 冰沙杯  </td><td> 冰沙杯蓋  </td><td> 果汁瓶 </td><td> 果汁瓶運費  </td>
+			<td> 冰塊  </td><td> 電費  </td><td> 水費  </td><td> 電話費 </td><td> 小計  </td>
+		</tr>
+		<tr>
+		<td>  金額  </td>
+		<td><%= Beef_item1_extra %></td><td><%= Beef_item2_extra %></td>
+		<td><%= Beef_item3_extra %></td><td><%= Beef_item4_extra %></td>
+		<td><%= Beef_item5_extra %></td><td><%= Beef_item6_extra %></td>
+		<td><%= Beef_item7_extra %></td><td><%= Beef_item8_extra %></td>
+		<td><%= Beef_item1_extra+Beef_item2_extra+Beef_item3_extra+Beef_item4_extra+
+				Beef_item5_extra+Beef_item6_extra+Beef_item7_extra+Beef_item8_extra %></td>		
+
+		</tr>
+
+	</tbody>
+	</table>

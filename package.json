@@ -1,0 +1,19 @@
+{
+  "name": "simpleopenshift",
+  "version": "0.0.1",
+  "description": "practice open shift",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "moment": "^2.16.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "4.1.9",
+    "nodemon": "^1.11.0"
+  }
+}
